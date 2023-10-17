@@ -45,12 +45,6 @@ function login(){
     }
 }
 
-const btnUp= document.getElementById('btnUp')
-
-btnUp.addEventListener('click', ()=>{
-   signUp()
-})
-
 
 function signUp(){
     // function hapus(){
@@ -84,43 +78,11 @@ function signUp(){
                 localStorage.setItem('user',JSON.stringify(signUpUser))
                 alert('Pendaftaran berhasil, silahkan melanjutkan login')
             }
-            
-
-
-        // alert('username atau password sudah terdaftar')
     }
-    // console.log(userLocal)
-
-    // console.log(newUser)
-
-
-
-    // const 
-    
-//     if (newUser) {
-//         // localStorage digunakan untuk menyimpan ke local browser
-//         localStorage.setItem('user', JSON.stringify(user))
-//         window.location.href = './home.html'
-//     } else {
-//         alert('Username dan Password Tidak Sesuai')
-//     }
 }
 
+const btnUp= document.getElementById('btnUp')
 
-
-// function masuk(){
-//     let newUser = document.getElementById('username').value
-//     let newPass = document.getElementById('pass').value
-    
-//      dataUser.push(`username : ${newUser}`)
-//      dataUser.push(newPass)
-//      console.log(dataUser)
-
-// }
-
-// const btnSign= document.getElementById('btnUp');console.log(btnSign)
-// btnSign.addEventListener('click', ()=>{
-//     masuk()
-//     console.log('triger')
-// })
-
+btnUp.addEventListener('click', ()=>{
+   signUp()
+})
