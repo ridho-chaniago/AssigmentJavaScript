@@ -10,27 +10,102 @@ btnLog.addEventListener('click', ()=>{
 })
 function login(){
     const username=document.getElementById('username').value
-    console.log(username)
     const pass=document.getElementById('pass').value
-    console.log(pass)
 
     // mencari data dari file userdata.js 
     const user = dataUser.find(person=>
         person.username==username && 
         person.pass==pass)
         console.log(user)
-        
     if (user) {
+       
         // localStorage digunakan untuk menyimpan ke local browser
         localStorage.setItem('user', JSON.stringify(user))
-        const local=localStorage.getItem('user')
-        console.log(local +'ini get item')
-
         window.location.href = './home.html'
-    } else {
+    }else if(user!=true){
+        const findUserLocal= localStorage.getItem('user')
+        const userLocal = JSON.parse(findUserLocal)
+        const username=document.getElementById('username').value
+        const pass=document.getElementById('pass').value
+        const log = userLocal.username==username && userLocal.pass==pass
+        console.log(log)
+        // alert('Username salah atau anda belum memiliki akun, silahkan lakukan pendaftaran')
+        if(log){
+            window.location.href = './home.html'
+            
+        }else{
+            alert('Username dan Password Tidak Sesuai')
+    
+        }
+
+    }
+    else{
         alert('Username dan Password Tidak Sesuai')
+
     }
 }
+
+const btnUp= document.getElementById('btnUp')
+
+btnUp.addEventListener('click', ()=>{
+   signUp()
+})
+
+
+function signUp(){
+    // function hapus(){
+    //     localStorage.clear()
+    // }
+    // hapus()    
+    const username=document.getElementById('username').value
+    const usernamee=document.getElementById('username')
+    
+    const pass=document.getElementById('pass').value
+    // mencari data dari file userdata.js 
+    const signUpUser = {
+        username:username,
+        pass:pass
+    }
+    console.log(signUpUser)
+    
+    const findUserLocal = localStorage.getItem('user')
+    console.log(findUserLocal)
+    const userLocal= JSON.parse(findUserLocal)
+    if(findUserLocal==null){
+        console.log('user tidak ditemukan')
+        localStorage.setItem('user', JSON.stringify(signUpUser));
+        console.log('sedang membuat user baru')
+    }else{
+        
+            const newUser = signUpUser.username==userLocal.username
+            if(newUser){
+                alert('username terdaftar')
+            }else{
+                localStorage.setItem('user',JSON.stringify(signUpUser))
+                alert('Pendaftaran berhasil, silahkan melanjutkan login')
+            }
+            
+
+
+        // alert('username atau password sudah terdaftar')
+    }
+    // console.log(userLocal)
+
+    // console.log(newUser)
+
+
+
+    // const 
+    
+//     if (newUser) {
+//         // localStorage digunakan untuk menyimpan ke local browser
+//         localStorage.setItem('user', JSON.stringify(user))
+//         window.location.href = './home.html'
+//     } else {
+//         alert('Username dan Password Tidak Sesuai')
+//     }
+}
+
 
 
 // function masuk(){
