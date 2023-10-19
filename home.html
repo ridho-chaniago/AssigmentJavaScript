@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <!-- <link rel="stylesheet" href="./stylehome.css"> -->
+    
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
     <style>
     input{border: 3px solid black; border-radius: 5px; width: 100%; height: 40px; text-align: center;}
     label{margin-top: 20px; font-size: 20px; font-weight: 900;}
@@ -21,20 +22,20 @@
 </head>
 <body>
     <header
-      class="h-[55px] bg-blue-500 px-4 py-8 flex items-center justify-between lg:px-20 "
+      class="h-[55px] bg-blue-500 px-4 py-8 flex items-center justify-between lg:px-20 w-[100%] fixed top-0"
     >
       <div class="flex items-center gap-3">
         <img id="img_user" class="h-10 w-10 rounded-md" alt="Foto Profile" />
         <div class="text-black font-bold font-mono" id="username"></div>
       </div>
-      <button class="btn p-0  w-20 h-8 bg-slate-300" onclick="onLogOut()">
+      <button class="hover:bg-red-200 hover:scale-105 btn p-0  w-20 h-8 bg-red-400" onclick="onLogOut()">
         Logout
       </button>
     </header>
 
-    <section>
-      <div style="background-image: url('https://i2.wp.com/hungarianspectrum.org/wp-content/uploads/2021/01/kisfaluldy.jpg?w=741&ssl=1'); filter: blur(10px); position: absolute; width: 100%; height: 100%;z-index: -1;;"></div>
-      <div   class="  flex justify-center flex-col items-center ">
+    <section class="">
+      <div style="background-image: url('https://i2.wp.com/hungarianspectrum.org/wp-content/uploads/2021/01/kisfaluldy.jpg?w=741&ssl=1'); filter: blur(10px); position: absolute; width: 100%; height:100%; z-index: -1;"></div>
+      <div id="formEdit"  class="  flex justify-center flex-col items-center lg:pt-20 mt-16">
         <form class="flex flex-col items-center w-[80%] ">
           
           <label for="product"><h2 class="lg:text-3xl">Product :</h2> </label>
@@ -69,13 +70,27 @@
           lg:w-[80%] lg:text-xl"readonly value="0" type="number" name="amount" id="amount">
         </form>
         <div class="flex justify-end gap-3 lg:gap-16 w-[80%] lg:w-[65%]">
-          <button class="btn mt-[20px] lg:h-14 lg:w-32" id="btnSubmit">SUBMIT</button>
+          <button class="btn hover:bg-yellow-200 hover:scale-105 mt-[20px] lg:h-14 lg:w-32" id="btnSubmit">SUBMIT</button>
       
-          <button class="btn mt-[20px] bg-red-500 lg:h-14 lg:w-32" id="btnCancel">CANCEL</button>
+          <button class="btn mt-[20px] hover:bg-red-200 hover:scale-105 bg-red-400 lg:h-14 lg:w-32" id="btnCancel">CANCEL</button>
         </div>
       </div>
-    
-      <div class="flex flex-col items-center gap-2 mt-10 mb-11">
+      <div class="mt-4 flex w-[100%] items-center justify-center fixed bottom-0">
+        
+        <button id="btnEdit" onclick="btnEdit()" class="w-[50%] hover:bg-slate-200 bg-white flex justify-center items-center  lg:h-14">
+          <img class="w-6 m-2" src="./asset/edit.svg" alt="">
+            <span>Input</span>
+          </button>
+          
+          <button id="btnList" onclick="btnList()" class="w-[50%] hover:bg-slate-200 bg-white flex justify-center items-center lg:h-14">
+            <img class="w-6 m-2" src="./asset/list1.svg" alt="">
+            <span>List</span>
+          </button>
+     
+      </div>
+
+    <div class="w-[100%] flex justify-center">
+      <div id="table" class=" flex-col items-center gap-2 mt-20  mb-11 hidden absolute top-0 mx-auto w-[100%]">
         <h2 class="h2 text-xl font-bold lg:text-3xl lg:font-extrabold">Daftar Penjualan</h2>
         <table class="bg-white text-[10px] border-[2px] border-black w-[90%] lg:w-[80%]">
           <thead>
@@ -83,7 +98,7 @@
               <th  class="border-[2px] border-black">Date</th>
               <th  class="border-[2px] border-black">Product</th>
               <th  class="border-[2px] border-black">Price</th>
-              <th class="border-[2px] border-black">Quantity</th>
+              <th class="border-[2px] border-black">Qty</th>
               <th class="border-[2px] border-black">Cost</th>
               <th class="border-[2px] border-black">Purchase</th>
             </tr>
@@ -93,6 +108,7 @@
           </tbody>
         </table>
       </div>
+    </div>
 
     </section>
 

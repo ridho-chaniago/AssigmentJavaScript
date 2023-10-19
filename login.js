@@ -6,12 +6,12 @@ import { dataUser } from './dataUser.js';
 const btnLog= document.getElementById('btnLog')
 
 btnLog.addEventListener('click', ()=>{
-   login()
+   login(), clear()
 })
 function login(){
     const username=document.getElementById('username').value
     const pass=document.getElementById('pass').value
-
+    
     // mencari data dari file userdata.js 
     const user = dataUser.find(person=>
         person.username==username && 
@@ -44,25 +44,33 @@ function login(){
 
     }
 }
+function clear(){
+    document.getElementById('username').value=""
+    document.getElementById('pass').value=""
+}
 
-// const btnUp= document.getElementById('btnUp')
-// const btnLog= document.getElementById('btnLog')
 const btnBackLog = document.getElementById('btnBackLog')
 const btnChangeP = document.getElementById('btnChangeP')
-
+const tUp= document.getElementById('tUp')
+const tLog= document.getElementById('tLog')
 const btnChange= document.getElementById('btnChange')
 function btnChangee(){
     btnBackLog.style.display="block"
     btnChangeP.style.display="none"
     btnUp.style.display="block"
     btnLog.style.display="none"
+    tLog.style.display="none"
+    tUp.style.display='flex'
 }
 function btnBackLogg(){
     btnBackLog.style.display="none"
     btnChangeP.style.display="block"
     btnUp.style.display="none"
     btnLog.style.display="block"
+    tLog.style.display="flex"
+    tUp.style.display='none'
 }
+
 
 btnChange.addEventListener('click', ()=>btnChangee())
 btnBackLog.addEventListener('click', ()=>btnBackLogg())
@@ -75,12 +83,15 @@ function signUp(){
     const usernamee=document.getElementById('username')
     
     const pass=document.getElementById('pass').value
+    if(username=="" || pass ==""){
+        alert('silahkan input username dan password')
+    }else{
     // mencari data dari file userdata.js 
     const signUpUser = {
         username:username,
         pass:pass
     }
-    console.log(signUpUser)
+    console.log(typeof signUpUser.username)
     
     const findUserLocal = localStorage.getItem('user')
     console.log(findUserLocal)
@@ -100,9 +111,11 @@ function signUp(){
             }
     }
 }
+}
 
 const btnUp= document.getElementById('btnUp')
 
 btnUp.addEventListener('click', ()=>{
-   signUp()
+   signUp() ,clear()
 })
+clear()

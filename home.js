@@ -1,10 +1,4 @@
-// import {clear} from './clear.js'
-
 function getDataUser() {
-    //1.get data localstorage
-    //2.Convert data ke object
-    //3. display ke dom
-
     const dataUser = localStorage.getItem('user')
     console.log(dataUser)
 
@@ -24,9 +18,6 @@ function getDataUser() {
 }
 getDataUser()
 
-
-
-
 let price = document.getElementById('price')
 let cost = document.getElementById('cost')
 let quantity = document.getElementById('quantity')
@@ -43,7 +34,7 @@ function changeQuantity(){
         amount.value=total+parseInt(cost.value)
     }
 }
-console.log(typeof price.value)
+
 function changeProduct(){
     const selectProduct = document.getElementById('product2').value
     console.log(selectProduct)
@@ -65,20 +56,13 @@ function changeProduct(){
         changeQuantity()}
 }
 document.getElementById('product2')
-console.log
 
-
-
+const table= document.getElementById('tableList')
 
 function input(){
     const product1 = document.getElementById('product1').value
     const product2 = document.getElementById('product2').value
-    const price = document.getElementById('price').value
-    const quantity = document.getElementById('quantity').value
-    const cost = document.getElementById('cost').value
-    const amount = parseInt(price)*parseInt(quantity)+parseInt(cost)
-    console.log(amount)
-    const table= document.getElementById('tableList')
+    console.log(product2)
     const row=table.insertRow();
     const cell1 = row.insertCell(0);
     const cell2 = row.insertCell(1);
@@ -86,14 +70,6 @@ function input(){
     const cell4 = row.insertCell(3);
     const cell5 = row.insertCell(4);
     const cell6 = row.insertCell(5);
-    const prodList= {
-        product1 : product1,
-        product2: product2,
-        price : price,
-        quantity : quantity,
-        cost : cost,
-        amount : amount
-    }
 
         let today=new Date()
         let dayname = {weekday: 'long'}
@@ -112,20 +88,20 @@ function input(){
     
     cell1.innerHTML=formatDate
     if(product1){
-        cell2.innerHTML=prodList.product1
+        cell2.innerHTML=product1
     }else{
-        cell2.innerHTML=prodList.product2
+        cell2.innerHTML=product2
     }
-    // cell2.innerHTML=prodList.product2
-    cell3.innerHTML=prodList.price
-    cell4.innerHTML=prodList.quantity
-    cell5.innerHTML=prodList.cost
-    cell6.innerHTML=amount
-    console.log(prodList)
+    cell3.innerHTML=price.value
+    cell4.innerHTML=quantity.value
+    cell5.innerHTML=cost.value
+    cell6.innerHTML=amount.value
+    alert('Berhasil Menyimpan Data')
 }
 function onLogOut(){
     // localStorage.removeItem('user')
     window.location.href = './index.html'
+
 }
 function clear(){
     document.getElementById('product1').value=""
@@ -137,11 +113,12 @@ function clear(){
 }
 function validate(){
    let a= document.getElementById('product2').value
+   console.log(a)
   let b=  document.getElementById('price').value
   let c=  document.getElementById('quantity').value
   let d=  document.getElementById('cost').value
   let e=  document.getElementById('amount').value
-    if (a && b && c ){
+    if (b && c ){
         console.log('oke')
         input()
         clear()
@@ -150,7 +127,20 @@ function validate(){
     }
     console.log(a, b ,c)
 }
+const formEdit= document.getElementById('formEdit')
+const tableNone= document.getElementById('table')
+
+
+function btnList(){
+    tableNone.style.display="flex"
+    formEdit.style.display="none"
+}
+function btnEdit(){
+    formEdit.style.display="flex"
+    tableNone.style.display="none"
+}
 const btnSubmit = document.getElementById('btnSubmit')
 btnSubmit.addEventListener('click', ()=> { validate()})
 const btnCancel = document.getElementById('btnCancel') 
 btnCancel.addEventListener('click', ()=>{clear()})
+
