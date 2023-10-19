@@ -6,7 +6,9 @@
     <title>Document</title>
     <link rel="stylesheet" href="./stylehome.css">
     <script src="https://cdn.tailwindcss.com"></script>
-
+    
+ 
+    
 </head>
 <body>
     <header
@@ -20,29 +22,31 @@
         Logout
       </button>
     </header>
+
     <section>
       <div class="flex justify-center flex-col items-center mt-10">
         <form class="flex flex-col items-center w-[50%] ">
           
           <label for="product">Product : </label>
-          <input type="text"  name="product" id="product1">
+          <input type="text"  name="product" id="product1" placeholder="Input Product Manual" class="mb-2">
 
-          <select id="product2" name="product" class="w-[100%] h-10 border-[3px] border-black rounded-md text-justify flex justify-center">
-            <option id="olshop" value="kertas olshop"> kertas olshop</option>
-            <option id="ultah" value="Undangan Ulang Tahun"> Undangan Ulang Tahun</option>
+          <select id="product2" onchange="changeProduct()" value=" " name="product" class="w-[100%] h-10 border-[3px] border-black rounded-md text-justify flex justify-center">
+            <option  disabled selected value=""  >Input Product Otomatis</option>
+            <option class="text-center" id="olshop" value="kertas olshop"> kertas olshop</option>
+            <option id="ultah" value="Undangan Ulang Tahun">Undangan Ulang Tahun</option>
             <option id="aqiqah" value="Undangan Aqiqah"> Undangan Aqiqah</option>
           </select>
           <label for="price">Price : </label>
-          <input type="number" name="price" id="price">
+          <input class="wajib" type="number" name="price" id="price">
           
           <label for="quantity">Quantity : </label>
-          <input type="number" name="quantity" id="quantity">
+          <input class="wajib" type="number" value="0" name="quantity" id="quantity" onchange="changeQuantity()">
 
           <label for="cost">Delivery Cost : </label>
-          <input type="number" name="cost" id="cost">
+          <input class="wajib" value="0" type="number" name="cost" id="cost">
 
           <label for="amount">Purchase Amount : </label>
-          <input type="number" name="amount" id="amount">
+          <input class="wajib"readonly value="0" type="number" name="amount" id="amount">
         </form>
         <div class="flex justify-end gap-3 w-[50%]">
           <button class="btn mt-[20px]" id="btnSubmit">SUBMIT</button>
@@ -72,5 +76,6 @@
     </section>
 
     <script src="./home.js"></script>
+    <!-- <script src="./functionHome/logout.js"></script> -->
 </body>
 </html>
