@@ -28,3 +28,12 @@ td{
 option{
     text-align: center;
 }
+body{
+    font-family: monospace;
+}
+
+/* h2{
+    font-weight: bold;
+    color: black;
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+} */

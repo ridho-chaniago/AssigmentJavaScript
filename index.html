@@ -1,28 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="w-[100%] h-[100%]">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="w-[100%] h-[100%] flex"  >
+    <div style="background-image: url('https://i2.wp.com/hungarianspectrum.org/wp-content/uploads/2021/01/kisfaluldy.jpg?w=741&ssl=1'); filter: blur(10px); position: absolute; width: 100%; height: 100%; z-index:-2;"></div>
+    <div class="w-[80%] h-[60%] flex bg-white flex-col justify-center items-center m-auto relative rounded-2xl gap-[20px] mb-36
+    lg:w-[30%]">
     <header>
-        <h1 class=" flex font-extrabold text-2xl justify-center p-10">selamat datang di website kami</h1>
+        <h1 class=" flex font-extrabold text-2xl justify-center">LOGIN</h1>
     </header>
-    <div class=" flex flex-col gap-4 justify-center p-3 items-center">
-        <div>
-            <input id="username" placeholder="Masukan Username" class="p-1 border-[2px] border-black rounded-sm">
+    <div class=" flex flex-col gap-4 justify-center p-3 items-center pb-28 w-[100%] ">
+        <div class="w-[100%]">
+            <input id="username" placeholder="Masukan Username" class="p-1 border-[2px]  w-[100%] border-black rounded-lg text-center
+            lg:h-12
+            ">
         </div>
-        <div>
-            <input id="pass" type="password" placeholder="Masukan Password" class="p-1 border-[2px] border-black rounded-sm">
+        <div class="w-[100%] ">
+            <input id="pass" type="password" placeholder="Masukan Password" class="p-1 border-[2px] border-black w-[100%] rounded-lg text-center lg:h-12">
         </div>
-        <div class="flex gap-4">
-            <button id="btnLog" class="bg-green-400 border-[2px] border-black px-3 py-1" >Login</button>
-            <button id="btnUp" class="bg-green-400 border-[2px] border-black px-3 py-1">Sign Up</button>
+        <div class="flex gap-4 w-[100%]">
+            <button id="btnLog" class="bg-blue-400 w-[100%] border-[2px] border-black px-3 py-1 rounded-lg lg:h-12" >Login</button>
+
+            <button  id="btnUp" class="bg-red-400 w-[100%] border-[2px] border-black px-3 py-1 rounded-lg hidden lg:h-12">Sign Up</button>
 
         </div>
+    
     </div>
+    <p class="absolute bottom-3" id="btnChangeP">Not a member? <button class="text-red-400 font-medium" id="btnChange" >Sign up Now!</button></p>
+    <p class="absolute bottom-3 "><button class="hidden text-blue-400 font-medium" id="btnBackLog" >Back to Login</button></p>
+</div>
+
+</div>
+
 
 <script type="module" src="./login.js"></script>
 </body>

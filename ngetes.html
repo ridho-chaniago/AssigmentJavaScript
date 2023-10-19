@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+</head>
+<body>
+
+<p id="receipt">
+    Nomor Resi: 123456789
+</p>
+
+<button onclick="downloadReceipt()">Download Resi</button>
+
+<script>
+function downloadReceipt() {
+    const receipt = document.getElementById("receipt");
+
+    html2canvas(receipt).then(function(canvas) {
+        let link = document.createElement('a');
+        link.download = 'resi.jpg';
+        link.href = canvas.toDataURL('image/jpeg');
+        link.click();
+    });
+}
+</script>
+
+</body>
+</html>

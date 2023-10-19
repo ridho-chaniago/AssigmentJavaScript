@@ -4,7 +4,7 @@ import { dataUser } from './dataUser.js';
 
 // tombol login dan fungsinya 
 const btnLog= document.getElementById('btnLog')
-console.log(btnLog)
+
 btnLog.addEventListener('click', ()=>{
    login()
 })
@@ -45,7 +45,27 @@ function login(){
     }
 }
 
+// const btnUp= document.getElementById('btnUp')
+// const btnLog= document.getElementById('btnLog')
+const btnBackLog = document.getElementById('btnBackLog')
+const btnChangeP = document.getElementById('btnChangeP')
 
+const btnChange= document.getElementById('btnChange')
+function btnChangee(){
+    btnBackLog.style.display="block"
+    btnChangeP.style.display="none"
+    btnUp.style.display="block"
+    btnLog.style.display="none"
+}
+function btnBackLogg(){
+    btnBackLog.style.display="none"
+    btnChangeP.style.display="block"
+    btnUp.style.display="none"
+    btnLog.style.display="block"
+}
+
+btnChange.addEventListener('click', ()=>btnChangee())
+btnBackLog.addEventListener('click', ()=>btnBackLogg())
 function signUp(){
     // function hapus(){
     //     localStorage.clear()

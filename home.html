@@ -4,70 +4,91 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./stylehome.css">
+    <!-- <link rel="stylesheet" href="./stylehome.css"> -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+    input{border: 3px solid black; border-radius: 5px; width: 100%; height: 40px; text-align: center;}
+    label{margin-top: 20px; font-size: 20px; font-weight: 900;}
+    .btn{padding:5px 15px; border:3px solid black; border-radius: 5px; background-color: yellow;  font-size: larger; font-weight: bold;}
+    td{border:2px solid black;text-align: center;}
+    option{text-align: center;}
+    body{font-family: monospace;}
+    h2{ color: black; text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;}
+    </style>
     
  
     
 </head>
 <body>
     <header
-      class="h-[55px] bg-slate-300 px-12 flex items-center justify-between gap-6"
+      class="h-[55px] bg-blue-500 px-4 py-8 flex items-center justify-between lg:px-20 "
     >
-      <div class="flex items-center gap-5">
+      <div class="flex items-center gap-3">
         <img id="img_user" class="h-10 w-10 rounded-md" alt="Foto Profile" />
-        <div class="text-black" id="username"></div>
+        <div class="text-black font-bold font-mono" id="username"></div>
       </div>
-      <button class="btn bg-red-300" onclick="onLogOut()">
+      <button class="btn p-0  w-20 h-8 bg-slate-300" onclick="onLogOut()">
         Logout
       </button>
     </header>
 
     <section>
-      <div class="flex justify-center flex-col items-center mt-10">
-        <form class="flex flex-col items-center w-[50%] ">
+      <div style="background-image: url('https://i2.wp.com/hungarianspectrum.org/wp-content/uploads/2021/01/kisfaluldy.jpg?w=741&ssl=1'); filter: blur(10px); position: absolute; width: 100%; height: 100%;z-index: -1;;"></div>
+      <div   class="  flex justify-center flex-col items-center ">
+        <form class="flex flex-col items-center w-[80%] ">
           
-          <label for="product">Product : </label>
-          <input type="text"  name="product" id="product1" placeholder="Input Product Manual" class="mb-2">
+          <label for="product"><h2 class="lg:text-3xl">Product :</h2> </label>
+          <input type="text "  name="product" id="product1" placeholder="Input Product Manual" class="mb-2 lg:h-14
+          lg:w-[80%]
+          lg:text-xl">
 
-          <select id="product2" onchange="changeProduct()" value=" " name="product" class="w-[100%] h-10 border-[3px] border-black rounded-md text-justify flex justify-center">
+          <select id="product2" onchange="changeProduct() " value=" " name="product" class="w-[100%] h-10 border-[3px] border-black rounded-md text-justify flex justify-center 
+          lg:h-14
+          lg:w-[80%]
+          lg:text-xl
+          ">
             <option  disabled selected value=""  >Input Product Otomatis</option>
-            <option class="text-center" id="olshop" value="kertas olshop"> kertas olshop</option>
+            <option class="text-center " id="olshop" value="kertas olshop"> kertas olshop</option>
             <option id="ultah" value="Undangan Ulang Tahun">Undangan Ulang Tahun</option>
             <option id="aqiqah" value="Undangan Aqiqah"> Undangan Aqiqah</option>
           </select>
-          <label for="price">Price : </label>
-          <input class="wajib" type="number" name="price" id="price">
+          <label class="h2 lg:text-3xl lg:font-extrabold" for="price"><h2 class="h2">Price :</h2> </label>
+          <input class="wajib lg:h-14
+          lg:w-[80%] lg:text-xl" type="number" name="price" id="price">
           
-          <label for="quantity">Quantity : </label>
-          <input class="wajib" type="number" value="0" name="quantity" id="quantity" onchange="changeQuantity()">
+          <label for="quantity"><h2 class="h2 lg:text-3xl lg:font-extrabold" >Quantity :</h2> </label>
+          <input class="wajib lg:h-14
+          lg:w-[80%] lg:text-xl" type="number" value="0" name="quantity" id="quantity" onchange="changeQuantity()">
 
-          <label for="cost">Delivery Cost : </label>
-          <input class="wajib" value="0" type="number" name="cost" id="cost">
+          <label for="cost"><h2 class="h2 lg:text-3xl lg:font-extrabold">Delivery Cost :</h2> </label>
+          <input class="wajib lg:h-14
+          lg:w-[80%] lg:text-xl" value="0" type="number" name="cost" id="cost">
 
-          <label for="amount">Purchase Amount : </label>
-          <input class="wajib"readonly value="0" type="number" name="amount" id="amount">
+          <label for="amount"><h2 class="h2 lg:text-3xl lg:font-extrabold">Purchase Amount :</h2> </label>
+          <input class="wajib lg:h-14
+          lg:w-[80%] lg:text-xl"readonly value="0" type="number" name="amount" id="amount">
         </form>
-        <div class="flex justify-end gap-3 w-[50%]">
-          <button class="btn mt-[20px]" id="btnSubmit">SUBMIT</button>
+        <div class="flex justify-end gap-3 lg:gap-16 w-[80%] lg:w-[65%]">
+          <button class="btn mt-[20px] lg:h-14 lg:w-32" id="btnSubmit">SUBMIT</button>
       
-          <button class="btn mt-[20px] bg-red-600" id="btnCancel">CANCEL</button>
+          <button class="btn mt-[20px] bg-red-500 lg:h-14 lg:w-32" id="btnCancel">CANCEL</button>
         </div>
       </div>
-      <div class="flex flex-col items-center gap-2 mt-10">
-        <h2 class="font-bold text-[24px]">Daftar Penjualan</h2>
-        <table class="border-[3px] border-black w-[80%]">
+    
+      <div class="flex flex-col items-center gap-2 mt-10 mb-11">
+        <h2 class="h2 text-xl font-bold lg:text-3xl lg:font-extrabold">Daftar Penjualan</h2>
+        <table class="bg-white text-[10px] border-[2px] border-black w-[90%] lg:w-[80%]">
           <thead>
-            <tr>
-              <th  class="border-[3px] border-black">Date</th>
-              <th  class="border-[3px] border-black">Product</th>
-              <th  class="border-[3px] border-black">Price</th>
-              <th class="border-[3px] border-black">Quantity</th>
-              <th class="border-[3px] border-black">Delivery Cost</th>
-              <th class="border-[3px] border-black">Purchase Amount</th>
+            <tr class="lg:h-12 lg:text-lg">
+              <th  class="border-[2px] border-black">Date</th>
+              <th  class="border-[2px] border-black">Product</th>
+              <th  class="border-[2px] border-black">Price</th>
+              <th class="border-[2px] border-black">Quantity</th>
+              <th class="border-[2px] border-black">Cost</th>
+              <th class="border-[2px] border-black">Purchase</th>
             </tr>
           </thead>
-          <tbody id="tableList">
+          <tbody id="tableList" class="lg:text-lg">
 
           </tbody>
         </table>
