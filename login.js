@@ -16,9 +16,7 @@ function login(){
     const user = dataUser.find(person=>
         person.username==username && 
         person.pass==pass)
-        console.log(user)
     if (user) {
-       
         // localStorage digunakan untuk menyimpan ke local browser
         localStorage.setItem('user', JSON.stringify(user))
         window.location.href = './home.html'
@@ -35,9 +33,7 @@ function login(){
             
         }else{
             alert('Username dan Password Tidak Sesuai')
-    
         }
-
     }
     else{
         alert('Username dan Password Tidak Sesuai')
@@ -49,6 +45,7 @@ function clear(){
     document.getElementById('pass').value=""
 }
 
+// memunculkan tombol signUp
 const btnBackLog = document.getElementById('btnBackLog')
 const btnChangeP = document.getElementById('btnChangeP')
 const tUp= document.getElementById('tUp')
@@ -70,15 +67,11 @@ function btnBackLogg(){
     tLog.style.display="flex"
     tUp.style.display='none'
 }
-
-
 btnChange.addEventListener('click', ()=>btnChangee())
 btnBackLog.addEventListener('click', ()=>btnBackLogg())
+
+// fungsi tombol sigup 
 function signUp(){
-    // function hapus(){
-    //     localStorage.clear()
-    // }
-    // hapus()    
     const username=document.getElementById('username').value
     const usernamee=document.getElementById('username')
     
@@ -91,17 +84,13 @@ function signUp(){
         username:username,
         pass:pass
     }
-    console.log(typeof signUpUser.username)
-    
     const findUserLocal = localStorage.getItem('user')
-    console.log(findUserLocal)
     const userLocal= JSON.parse(findUserLocal)
     if(findUserLocal==null){
         console.log('user tidak ditemukan')
         localStorage.setItem('user', JSON.stringify(signUpUser));
         console.log('sedang membuat user baru')
     }else{
-        
             const newUser = signUpUser.username==userLocal.username
             if(newUser){
                 alert('username terdaftar')
@@ -109,12 +98,11 @@ function signUp(){
                 localStorage.setItem('user',JSON.stringify(signUpUser))
                 alert('Pendaftaran berhasil, silahkan melanjutkan login')
             }
+        }
     }
 }
-}
-
+// tombol signUp
 const btnUp= document.getElementById('btnUp')
-
 btnUp.addEventListener('click', ()=>{
    signUp() ,clear()
 })

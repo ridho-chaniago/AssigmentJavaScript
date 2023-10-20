@@ -1,3 +1,5 @@
+
+// untuk mengambil data user 
 function getDataUser() {
     const dataUser = localStorage.getItem('user')
     console.log(dataUser)
@@ -23,6 +25,8 @@ let cost = document.getElementById('cost')
 let quantity = document.getElementById('quantity')
 let amount = document.getElementById('amount')
 console.log(typeof total)
+
+// menambah dan mengurangi quantity 
 function changeQuantity(){
     var total= parseInt(price.value)*parseInt(quantity.value)
     console.log(total)
@@ -35,9 +39,9 @@ function changeQuantity(){
     }
 }
 
+// mengganti produk otomatis 
 function changeProduct(){
-    const selectProduct = document.getElementById('product2').value
-    console.log(selectProduct)
+        const selectProduct = document.getElementById('product2').value
         const olshop =document.getElementById('olshop').value
         const ultah =document.getElementById('ultah').value
         const aqiqah =document.getElementById('aqiqah').value
@@ -71,6 +75,7 @@ function input(){
     const cell5 = row.insertCell(4);
     const cell6 = row.insertCell(5);
 
+    // menambakan tanggal di cell1 
         let today=new Date()
         let dayname = {weekday: 'long'}
         let day = today.toLocaleString('id-ID', dayname);
@@ -85,7 +90,7 @@ function input(){
         }
         let formatDate = `${day}, ${date}-${month}-${year}`
 
-    
+    // memasukan input kedalam tabel 
     cell1.innerHTML=formatDate
     if(product1){
         cell2.innerHTML=product1
@@ -98,11 +103,13 @@ function input(){
     cell6.innerHTML=amount.value
     alert('Berhasil Menyimpan Data')
 }
-function onLogOut(){
-    // localStorage.removeItem('user')
-    window.location.href = './index.html'
 
+// fungsi tombol keluar 
+function onLogOut(){
+    window.location.href = './index.html'
 }
+
+// fungsi menghapus nilai dari kolom input 
 function clear(){
     document.getElementById('product1').value=""
     document.getElementById('product2').value=""
@@ -111,6 +118,8 @@ function clear(){
     document.getElementById('cost').value=""
     document.getElementById('amount').value=""
 }
+
+// memrikan alert jika kolom input kosong
 function validate(){
    let a= document.getElementById('product2').value
    console.log(a)
